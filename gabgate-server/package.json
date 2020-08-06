@@ -1,0 +1,71 @@
+{
+	"name": "gabgate-api",
+	"version": "0.0.1",
+	"main": "./dist/index.js",
+	"author": {
+		"name": "Lars Wächter",
+		"email": "os@larswaechter.de",
+		"url": "https://larswaechter.de"
+	},
+	"description": "Express.js based REST API for Gabgate applications",
+	"private": true,
+	"license": "MIT",
+	"repository": {
+		"url": "https://github.com/larswaechter/gabgate"
+	},
+	"bugs": {
+		"url": "https://github.com/larswaechter/gabgate/issues"
+	},
+	"scripts": {
+		"start": "pm2 start dist/index.js --name gabgate-api",
+		"start:dev": "node dist/index.js",
+		"build": "rm -rf dist && tsc -p tsconfig.json",
+		"watch": "nodemon --exec \"npm run build && npm run start:dev\" --watch src --ext ts",
+		"lint": "tslint -p tsconfig.json",
+		"prettier": "prettier --config ./.prettierrc --write src/**/*.ts",
+		"docs": "typedoc --mode file --out docs --readme README.md --module commonjs"
+	},
+	"devDependencies": {
+		"@types/bcryptjs": "^2.4.2",
+		"@types/bluebird": "^3.5.32",
+		"@types/compression": "^1.7.0",
+		"@types/express": "^4.17.7",
+		"@types/helmet": "^0.0.47",
+		"@types/jsonwebtoken": "^8.5.0",
+		"@types/mongoose": "^5.7.34",
+		"@types/passport-jwt": "^3.0.3",
+		"@types/redis": "^2.8.25",
+		"@types/socket.io": "^2.1.10",
+		"@types/socket.io-redis": "^1.0.26",
+		"@types/socketio-jwt": "0.2.0",
+		"@types/uuid": "^8.0.0",
+		"nodemon": "^2.0.4",
+		"prettier": "^2.0.5",
+		"reflect-metadata": "^0.1.13",
+		"source-map-support": "^0.5.19",
+		"tslint": "^6.1.3",
+		"tslint-config-prettier": "^1.18.0",
+		"typedoc": "^0.17.8",
+		"typescript": "^3.9.7"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"compression": "^1.7.4",
+		"decko": "^1.2.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"helmet": "^3.23.3",
+		"jsonwebtoken": "^8.5.1",
+		"mongodb": "^3.6.0",
+		"mongoose": "^5.9.27",
+		"passport": "^0.4.1",
+		"passport-jwt": "^4.0.0",
+		"pm2": "^4.4.0",
+		"redis": "^3.0.2",
+		"socket.io": "^2.3.0",
+		"socket.io-redis": "^5.3.0",
+		"socketio-jwt": "^4.6.2",
+		"uuid": "^8.3.0",
+		"winston": "^3.3.3"
+	}
+}
